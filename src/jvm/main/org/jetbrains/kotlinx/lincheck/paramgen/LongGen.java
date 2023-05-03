@@ -34,4 +34,9 @@ public class LongGen implements ParameterGenerator<Long> {
     public Long generate() {
         return (long) intGen.generate();
     }
+
+    @Override
+    public void restart() {
+        intGen.restart();
+    }
 }

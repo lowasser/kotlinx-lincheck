@@ -34,4 +34,9 @@ public class ShortGen implements ParameterGenerator<Short> {
     public Short generate() {
         return (short) generator.nextInt();
     }
+
+    @Override
+    public void restart() {
+        generator.restart();
+    }
 }
