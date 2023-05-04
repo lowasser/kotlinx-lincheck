@@ -19,10 +19,16 @@ import org.jetbrains.kotlinx.lincheck.annotations.Operation;
 public interface ParameterGenerator<T> {
     T generate();
 
+    void resetRange();
+
     final class Dummy implements ParameterGenerator<Object> {
         @Override
         public Object generate() {
             throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void resetRange() {
         }
     }
 }
