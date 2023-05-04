@@ -36,7 +36,7 @@ public class LongGen implements ParameterGenerator<Long> {
     }
 
     @Override
-    public void restart() {
-        intGen.restart();
+    public void resetRange() {
+        intGen.resetRange();
     }
 }

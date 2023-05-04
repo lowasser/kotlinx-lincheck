@@ -37,7 +37,7 @@ public class ByteGen implements ParameterGenerator<Byte> {
     }
 
     @Override
-    public void restart() {
+    public void resetRange() {
         generator.restart();
     }
 }

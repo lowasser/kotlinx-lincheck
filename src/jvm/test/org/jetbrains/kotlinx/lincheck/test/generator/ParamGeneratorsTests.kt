@@ -1,3 +1,4 @@
+@file:Suppress("UNUSED")
 /*
  * Lincheck
  *
@@ -165,8 +166,7 @@ class ParamGeneratorResetBetweenScenariosTest {
     }
 
     @Operation
-    @Suppress("UNUSED")
     @Synchronized
-    fun operation(value: Int) = check(value in -10 .. 10)
+    fun operation(value: Int) = check(value in -10..10)
 
 }

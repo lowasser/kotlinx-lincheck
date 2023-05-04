@@ -36,7 +36,7 @@ public class ShortGen implements ParameterGenerator<Short> {
     }
 
     @Override
-    public void restart() {
+    public void resetRange() {
         generator.restart();
     }
 }

@@ -80,7 +80,7 @@ public class DoubleGen implements ParameterGenerator<Double> {
     }
 
     @Override
-    public void restart() {
+    public void resetRange() {
         intGenerator.restart();
     }
 }

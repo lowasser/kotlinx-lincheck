@@ -132,6 +132,9 @@ class ValueHolderGen(randomProvider: RandomProvider, conf: String) : ParameterGe
     override fun generate(): ValueHolder {
         return listOf(ValueHolder(1), ValueHolder(2)).random()
     }
+
+    override fun resetRange() {
+    }
 }
 
 @Param(name = "key", gen = JavaUtilGen::class)
@@ -150,6 +153,8 @@ class SerializableJavaUtilParameterTest : AbstractLincheckTest() {
 
 class JavaUtilGen(randomProvider: RandomProvider, conf: String) : ParameterGenerator<List<Int>> {
     override fun generate() = listOf(1, 2)
+    override fun resetRange() {
+    }
 }
 
 data class ValueHolder(val value: Int) : Serializable
@@ -170,4 +175,7 @@ class SerializableNullParameterTest : AbstractLincheckTest() {
 
 class NullGen(randomProvider: RandomProvider, conf: String) : ParameterGenerator<List<Int>?> {
     override fun generate() = null
+
+    override fun resetRange() {
+    }
 }
