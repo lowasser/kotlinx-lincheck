@@ -185,8 +185,12 @@ public class CTestStructure {
             // otherwise return generator with parameter's name
             String name = nameInOperation != null ? nameInOperation :
                 (p.isNamePresent() ? p.getName() : null);
-            if (name != null)
-                return checkAndGetNamedGenerator(namedGens, name);
+            if (name != null) {
+                ParameterGenerator<?> generator = checkAndGetNamedGenerator(namedGens, name);
+                if (generator != null) {
+                    return generator;
+                }
+            }
             // Parameter generator is not specified, try to create a default one
             ParameterGenerator<?> defaultGenerator = defaultGens.get(p.getType());
             if (defaultGenerator != null)
@@ -235,7 +239,7 @@ public class CTestStructure {
     }
 
     private static ParameterGenerator<?> checkAndGetNamedGenerator(Map<String, ParameterGenerator<?>> namedGens, String name) {
-        return Objects.requireNonNull(namedGens.get(name), "Unknown generator name: \"" + name + "\"");
+        return namedGens.get(name);
     }
 
     public static class OperationGroup {
